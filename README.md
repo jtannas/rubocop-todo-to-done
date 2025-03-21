@@ -17,8 +17,9 @@ or goes against the tastes of the existing team.
 5. Scans through the todo file for autocorrectable rules matching `{pattern}`
 6. For each autocorrectable rule do |rule|
     1. Remove it from the todo file
-    2. Safe the ToDo file
+    2. Save the ToDo file
     3. `$ rubocop [-a/-A] --only [rule]`
-    4. `$ git commit -am 'autocorrect [rule]'`
+    4. If there are no errors left: `$ git commit -am 'autocorrect [rule]'`
+    5. If there are errors left: `$ git revert --hard HEAD`
 7. `$ rubocop [-a/-A]`
 8. `$ git commit -am 'autocorrect remaining offenses'`
